@@ -120,77 +120,93 @@ for (var i = 0; i < anim.length; i++) {
 // ****************HORIZONTAL*****************************
 
 // función que rellena en horizontal
-function printarHorizontal (array) {
-  for (var i = 0; i < array[0].length; i++) {
-    if(document.getElementById('td' + i).innerText !=''){
-      if(document.getElementById('td' + i).innerText==array[0][i]){
-        document.getElementById('td' + i).innerText = array[0][i]
-      }
-      }else{
-        document.getElementById('td' + i).innerText = array[0][i]
-
-      }
-    }
-    
-  
+function printarHorizontal (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
+    numero = numero + 1
+  }
 }
 
-printarHorizontal(arraypalabra)
+// printarHorizontal(arraypalabra,0)
 
 // función que rellena en horizontal inverso
-// function printarHorizontalInverso (array) {
-//   for (var i = 0; i < array[0].length; i++) {
-//     document.getElementById('td' + invH).innerText = array[0][i]
+function printarHorizontalInverso (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
 
-//     invH = invH - 1
-//   }
-// }
+    numero = numero - 1
+  }
+}
+
+// printarHorizontalInverso(arraypalabra,99)
 
 // ****************VERTICAL*****************************
 
 // funcion rellenar vertical de arriba a abajo
 
-function verticalHaciaAbajo (array) {
-  for (var i = 0; i < array[1].length; i++) {
-    document.getElementById('td' + m).innerText = array[1][i]
+function verticalHaciaAbajo (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
 
-    m = m + 10
+    numero = numero + 10
   }
 }
 
-verticalHaciaAbajo(arraypalabra)
+// verticalHaciaAbajo(arraypalabra, 10)
 
 // funcion rellenar en vertical inverso
 
-// function vertiaclInverso (array) {
-//   for (var i = 0; i < array[3].length; i++) {
-//     document.getElementById('td' + inv).innerText = array[3][i]
+function vertiaclInverso (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
 
-//     inv = inv - 10
-//   }
-// }
+    numero = numero - 10
+  }
+}
 
 // ****************DIAGONAL*****************************
 
-// rellenar diagonal abajo
+// rellenar diagonal abajo derecha
 
-// function diagonalAbajo (array) {
-//   for (var i = 0; i < array.length; i++) {
-//     document.getElementById('td' + Diagonal).innerText = array[2][i]
+function diagonalAbajoDerecha (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
 
-//     Diagonal = Diagonal + 11
-//   }
-// }
+    numero = numero + 11
+  }
+}
 
-// rellenar diagonal inverso
+// rellenar diagonal abajo izquierda
 
-// function diagonalInverso (array) {
-//   for (var i = 0; i < array[1].length; i++) {
-//     document.getElementById('td' + Diagonalinverso).innerText = array[1][i]
+function diagonalAbajoIzquierda (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
 
-//     Diagonalinverso = Diagonalinverso - 11
-//   }
-// }
+    numero = numero + 9
+  }
+}
+
+// diagonalAbajoIzquierda(arraypalabra,9)
+
+// rellenar diagonal inverso izquierdo
+
+function diagonalInversoIzquierda (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
+
+    numero = numero - 11
+  }
+}
+
+// rellenar diagonal inverso derecha
+
+function diagonalInversoDerecha (array, numero, posicion) {
+  for (var i = 0; i < array[posicion].length; i++) {
+    document.getElementById('td' + numero).innerText = array[posicion][i]
+
+    numero = numero - 9
+  }
+}
 
 // rellenar con letras si está vacio
 
@@ -244,3 +260,40 @@ function concatenarPalabra (celda) {
 }
 
 // ***************************PRINTAR PALABRA EN DIV*****************************
+
+function ponerPalabrasEnTablero (array) {
+  var aleatorio = Math.floor(Math.random() * 2)
+
+  if (aleatorio == 0) {
+    printarHorizontal(arraypalabra, 10, 3)
+    printarHorizontal(arraypalabra, 40, 1)
+    printarHorizontalInverso(arraypalabra, 59, 0)
+    printarHorizontalInverso(arraypalabra, 79, 2)
+  } else if (aleatorio == 1) {
+    verticalHaciaAbajo(arraypalabra, 13, 0)
+    verticalHaciaAbajo(arraypalabra, 18, 1)
+    vertiaclInverso(arraypalabra, 99, 2)
+    vertiaclInverso(arraypalabra, 90, 3)
+  }
+}
+
+ponerPalabrasEnTablero(arraypalabra)
+
+// var aleatorio = Math.floor(Math.random() * 4)
+
+// if (aleatorio == 0) {
+//   printarHorizontal()
+
+//   printarHorizontalInverso()
+
+//   diagonalAbajo()
+// }
+
+// printarHorizontal(arraypalabra,0)
+// printarHorizontalInverso(arraypalabra,99)
+// verticalHaciaAbajo(arraypalabra,10)
+// vertiaclInverso()
+// diagonalAbajoDerecha()
+// diagonalAbajoIzquierda(arraypalabra,9)
+// diagonalInversoIzquierda()
+// diagonalInversoDerecha()
