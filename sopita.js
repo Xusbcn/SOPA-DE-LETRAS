@@ -75,8 +75,15 @@ invH = 9
 Diagonal = 0
 Diagonalinverso = 89
 var arrayConcat = []
-var palabrConcatenada = ''
+
 var ID = []
+var limpiarArray = 0
+
+// funcion que limpia el arrayconactenado
+
+if (limpiarArray == 1) {
+  arrayConcat = []
+}
 
 // función que elije cuatro palabras sin qu ese repitan.
 
@@ -223,12 +230,12 @@ function cambiarColortd (celda) {
   document.getElementById('td' + celda).style.backgroundColor = 'red'
 }
 
-function desactivarOnclick (celda) {
-  if (document.getElementById('td' + celda).style.backgroundColor == 'red') {
-    document.getElementById('td' + celda).onclick = false
-    document.getElementById('td' + celda).style.backgroundColor = 'blue'
-  }
-}
+// function desactivarOnclick (celda) {
+//   if (document.getElementById('td' + celda).style.backgroundColor == 'red') {
+//     document.getElementById('td' + celda).onclick = false
+//     document.getElementById('td' + celda).style.backgroundColor = 'blue'
+//   }
+// }
 
 // function obtenerId (celda) {
 //   ID = document.getElementsByClassName('prueba')[celda].id
@@ -239,6 +246,8 @@ function desactivarOnclick (celda) {
 // }
 
 function concatenarPalabra (celda) {
+  var palabrConcatenada
+
   cambiarColortd(celda)
 
   // obtenerId(celda);
@@ -249,11 +258,16 @@ function concatenarPalabra (celda) {
 
   palabrConcatenada = arrayConcat.join('')
 
+  console.log(palabrConcatenada.length)
+
   if (anim.includes(palabrConcatenada)) {
-    for (var i = 0; i < arrayConcat.length; i++) {
+    for (var i = 0; i < palabrConcatenada.length; i++) {
       document.getElementById(ID[i]).onclick = false
       document.getElementById(ID[i]).style.backgroundColor = 'blue'
     }
+    arrayConcat = []
+    palabrConcatenada
+    ID = []
   }
 
   console.log(palabrConcatenada)
