@@ -1,13 +1,23 @@
-td{
-text-align: center;
+td {
+    text-align: center;
 }
-table td:hover{
+
+table td:hover {
     background: #cccccc;
     cursor: pointer;
 }
 
-div {
+#contenido {
     width: 500px;
     margin: auto;
     border: 3px solid #73AD21;
+}
+
+#reloj {
+    font-size: 50px;
+    color: #434343;
+}
+
+#botonReiniciar {
+    display: none;
 }

@@ -49,9 +49,7 @@ alfabeto = [
   'Y',
   'Z'
 ]
-animal = ['p', 'e', 'r', 'o']
-planta = ['f', 'l', 'o', 'r']
-cosa = ['l', 'a', 'g', 'o']
+
 animales = [
   'MOSCA',
   'PERRO',
@@ -64,6 +62,33 @@ animales = [
   'TORTUGA',
   'JABALI'
 ]
+
+flores = [
+  'ADELFA',
+  'AMAPOLA',
+  'BEGONIA',
+  'AZALEA',
+  'DALIA',
+  'GARDENIA',
+  'GERANIO',
+  'GIRASOL',
+  'JAZMIN',
+  'NARCISO'
+]
+
+colores = [
+  'ROJO',
+  'AMARILLO',
+  'VERDE',
+  'AZUL',
+  'VIOLETA',
+  'NARANJA',
+  'NEGRO',
+  'BLANCO',
+  'CELESTE',
+  'ROSADO'
+]
+
 anim = []
 control = []
 contadorplabras = 0
@@ -77,27 +102,27 @@ Diagonalinverso = 89
 var arrayConcat = []
 
 var ID = []
-var limpiarArray = 0
 
-// funcion que limpia el arrayconactenado
+var Ganar = 0
+var segundos = 0
+var tiempos
 
-if (limpiarArray == 1) {
-  arrayConcat = []
-}
+// función que elije cuatro palabras sin que se repitan.
 
-// función que elije cuatro palabras sin qu ese repitan.
+function eligePalabras (array) {
+  for (var i = 0; i < 4; i++) {
+    anadirpalabra = array[Math.round(Math.random() * 9)]
 
-for (var i = 0; i < 4; i++) {
-  anadirpalabra = animales[Math.round(Math.random() * 9)]
-
-  if (anim.includes(anadirpalabra)) {
-    i = i - 1
-  } else {
-    anim.push(anadirpalabra)
+    if (anim.includes(anadirpalabra)) {
+      i = i - 1
+    } else {
+      anim.push(anadirpalabra)
+    }
   }
 }
 
 // añade las palabras en el div
+
 for (var i = 0; i < anim.length; i++) {
   console.log(anim[i])
 
@@ -106,11 +131,14 @@ for (var i = 0; i < anim.length; i++) {
 
 // Descomponer palabras en letras
 
-for (var i = 0; i < anim.length; i++) {
-  var spliter = anim[i].split('')
+function descoponePalabra () {
+  for (var i = 0; i < anim.length; i++) {
+    var spliter = anim[i].split('')
 
-  arraypalabra.push(spliter)
+    arraypalabra.push(spliter)
+  }
 }
+
 // console.log(arraypalabra);
 
 // *************RRellenar**********************
@@ -217,12 +245,13 @@ function diagonalInversoDerecha (array, numero, posicion) {
 
 // rellenar con letras si está vacio
 
-for (var i = 0; i < 100; i++) {
-  if (document.getElementById('td' + i).innerText == '') {
-    document.getElementById('td' + i).innerText =
-      alfabeto[Math.floor(Math.random() * alfabeto.length)]
+function rellenaTableroVacio () {
+  for (var i = 0; i < 100; i++) {
+    if (document.getElementById('td' + i).innerText == '') {
+      document.getElementById('td' + i).innerText =
+        alfabeto[Math.floor(Math.random() * alfabeto.length)]
+    }
   }
-
   // console.log(alfabeto.length);
 }
 
@@ -245,12 +274,43 @@ function cambiarColortd (celda) {
 //   }
 // }
 
+function contadorTiempo () {
+  tiempo = document.getElementById('reloj')
+  window.setInterval(function () {
+    tiempo.innerHTML = segundos
+    segundos++
+  }, 1000)
+}
+
+function paraTiempo () {
+  clearInterval(segundos)
+  document.getElementById('reloj').style.display = 'none'
+
+  document.getElementById('contenido').innerHTML =
+    'Has tardado: ' + segundos + ' segundos'
+}
+
+function partidaGanada (valor) {
+  if (valor == 4) {
+    document.getElementById('botonReiniciar').style.display = 'block'
+    console.log('funciona')
+    paraTiempo()
+    deshabilitarCasillas()
+  }
+}
+
+function deshabilitarCasillas () {
+  for (var i = 0; i < 100; i++) {
+    if (document.getElementById('td' + i).style.backgroundColor != 'blue') {
+      document.getElementById('td' + i).onclick = false
+    }
+  }
+}
+
 function concatenarPalabra (celda) {
   var palabrConcatenada
 
   cambiarColortd(celda)
-
-  // obtenerId(celda);
 
   arrayConcat.push(document.getElementById('td' + celda).innerText)
 
@@ -258,7 +318,7 @@ function concatenarPalabra (celda) {
 
   palabrConcatenada = arrayConcat.join('')
 
-  console.log(palabrConcatenada.length)
+  // console.log(palabrConcatenada.length)
 
   if (anim.includes(palabrConcatenada)) {
     for (var i = 0; i < palabrConcatenada.length; i++) {
@@ -268,9 +328,14 @@ function concatenarPalabra (celda) {
     arrayConcat = []
     palabrConcatenada
     ID = []
+
+    Ganar = Ganar + 1
+    console.log(Ganar)
+
+    partidaGanada(Ganar)
   }
 
-  console.log(palabrConcatenada)
+  // console.log(palabrConcatenada)
 }
 
 // ***************************PRINTAR PALABRA EN DIV*****************************
@@ -291,7 +356,46 @@ function ponerPalabrasEnTablero (array) {
   }
 }
 
-ponerPalabrasEnTablero(arraypalabra)
+//* ********************* FUNCION QUE HABILITA/DESHABILITA BOTON*************************
+
+function deshabilitarBoton () {
+  if (document.getElementById('seleccionCategoria').selectedIndex == 0) {
+    document.getElementById('buttonSelect').disabled = true
+  }
+}
+
+//* *************FUNCION PRINTA SELECCION EN TABLERO***************************
+
+// deshabilitarBoton()
+
+function seleccionaCategoria () {
+  var seleccionID = document.getElementById('seleccionCategoria')
+  seleccionID = seleccionID.options[seleccionID.selectedIndex].value
+
+  if (seleccionID == 1) {
+    eligePalabras(animales)
+    descoponePalabra()
+    rellenaTableroVacio()
+    ponerPalabrasEnTablero(arraypalabra)
+    document.getElementById('buttonSelect').disabled = true
+    contadorTiempo()
+  } else if (seleccionID == 2) {
+    eligePalabras(colores)
+    descoponePalabra()
+    rellenaTableroVacio()
+    ponerPalabrasEnTablero(arraypalabra)
+
+    document.getElementById('buttonSelect').disabled = true
+    contadorTiempo()
+  } else if (seleccionID == 3) {
+    eligePalabras(flores)
+    descoponePalabra()
+    rellenaTableroVacio()
+    ponerPalabrasEnTablero(arraypalabra)
+    document.getElementById('buttonSelect').disabled = true
+    contadorTiempo()
+  }
+}
 
 // var aleatorio = Math.floor(Math.random() * 4)
 

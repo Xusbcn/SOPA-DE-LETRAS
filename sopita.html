@@ -149,7 +149,7 @@
         <tr>
             <td width="300" align="center"><br />
                 <a href="javascript:location.reload()">
-                    <button>Reiniciar</button></a>
+                    <button id = 'botonReiniciar'>Reiniciar</button></a>
             </td>
         </tr>
     </table>
@@ -162,6 +162,21 @@
         <p id= 'lista3'></p>
     </div>
 
+
+    <div id = divSeleccion>
+        <select id ='seleccionCategoria'>
+            <option value="0">ELIGE CATEGORIA</option>
+            <option value="1">ANIMAL</option>
+            <option value="2">COLOR</option>
+            <option value="3">FLOR</option>
+        </select>
+    </div>
+
+    <div id ='contentButton'>
+        <button id = 'buttonSelect' onclick="seleccionaCategoria()">INICIAR</button>
+    </div>
+
+    <div id='reloj'></div>
 </body>
 <script type="text/javascript" src="sopita.js"></script>
 
