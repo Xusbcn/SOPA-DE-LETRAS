@@ -222,7 +222,10 @@ function rellenaTableroVacio() {
 }
 // función que cambia el color al clickar la celda
 function cambiarColortd(celda) {
-    document.getElementById('td' + celda).style.backgroundColor = '#ff000038'
+    if (document.getElementById('td' + celda).innerText != '') {
+        document.getElementById('td' + celda).style.backgroundColor = '#ff000038'
+    }
+
 }
 
 
