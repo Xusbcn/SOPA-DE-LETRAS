@@ -2,12 +2,6 @@
 
 var matriz,
     alfabeto,
-    animal,
-    planta,
-    j,
-    m,
-    cosa,
-    inv,
     animales,
     anim,
     control,
@@ -15,9 +9,6 @@ var matriz,
     pos,
     anadirpalabra,
     arraypalabra,
-    invH,
-    Diagonal,
-    Diagonalinverso,
     celda
 
 alfabeto = [
@@ -93,21 +84,13 @@ anim = []
 control = []
 contadorplabras = 0
 arraypalabra = []
-j = 0
-m = 2
-inv = 90
-invH = 9
-Diagonal = 0
-Diagonalinverso = 89
 var arrayConcat = []
-
-var ID = []
-
 var Ganar = 0
 var segundos = 0
 var tiempos
-
 var sumaCeldas
+var almacenaCeldas = []
+var arrayIDceldas = []
 
 // función que elije cuatro palabras sin que se repitan.
 
@@ -123,13 +106,7 @@ function eligePalabras(array) {
     }
 }
 
-// añade las palabras en el div
 
-for (var i = 0; i < anim.length; i++) {
-    console.log(anim[i])
-
-    document.getElementById('lista' + i).innerText = anim[i]
-}
 
 // Descomponer palabras en letras
 
@@ -141,18 +118,6 @@ function descoponePalabra() {
     }
 }
 
-// console.log(arraypalabra);
-
-// *************RRellenar**********************
-
-// Printar palabra en matriz.
-// for (var i = 0; i < arraypalabra[0].length; i++) {
-//   document.getElementById('td' + m).innerText = arraypalabra[0][i];
-
-//   console.log(arraypalabra[0][i])
-
-//   m = m + 4
-// }
 
 // ****************HORIZONTAL*****************************
 
@@ -164,7 +129,7 @@ function printarHorizontal(array, numero, posicion) {
     }
 }
 
-// printarHorizontal(arraypalabra,0)
+
 
 // función que rellena en horizontal inverso
 function printarHorizontalInverso(array, numero, posicion) {
@@ -175,7 +140,6 @@ function printarHorizontalInverso(array, numero, posicion) {
     }
 }
 
-// printarHorizontalInverso(arraypalabra,99)
 
 // ****************VERTICAL*****************************
 
@@ -189,7 +153,7 @@ function verticalHaciaAbajo(array, numero, posicion) {
     }
 }
 
-// verticalHaciaAbajo(arraypalabra, 10)
+
 
 // funcion rellenar en vertical inverso
 
@@ -223,7 +187,7 @@ function diagonalAbajoIzquierda(array, numero, posicion) {
     }
 }
 
-// diagonalAbajoIzquierda(arraypalabra,9)
+
 
 // rellenar diagonal inverso izquierdo
 
@@ -254,28 +218,15 @@ function rellenaTableroVacio() {
                 alfabeto[Math.floor(Math.random() * alfabeto.length)]
         }
     }
-    // console.log(alfabeto.length);
-}
 
+}
+// función que cambia el color al clickar la celda
 function cambiarColortd(celda) {
-    document.getElementById('td' + celda).style.backgroundColor = 'red'
+    document.getElementById('td' + celda).style.backgroundColor = '#ff000038'
 }
 
-// function quitarRojo (celda) {
-//   if (document.getElementById('td' + celda).style.backgroundColor == 'red') {
-//     document.getElementById('td' + celda).onclick = false
-//     document.getElementById('td' + celda).style.backgroundColor = 'blue'
-//   }
-// }
 
-// function obtenerId (celda) {
-//   ID = document.getElementsByClassName('prueba')[celda].id
-//   if (document.getElementById(ID).style.backgroundColor == 'red') {
-//     document.getElementById(ID).onclick = false
-//     document.getElementById(ID).style.backgroundColor = 'blue'
-//   }
-// }
-
+//funcion que cronometra el tiempo
 function contadorTiempo() {
     tiempo = document.getElementById('reloj')
     window.setInterval(function() {
@@ -284,6 +235,7 @@ function contadorTiempo() {
     }, 1000)
 }
 
+// función que para el tiempo.
 function paraTiempo() {
     clearInterval(segundos)
     document.getElementById('reloj').style.display = 'none'
@@ -292,8 +244,13 @@ function paraTiempo() {
     document.getElementById('tiempo').innerHTML = segundos
 }
 
-function partidaGanada(valor) {
+// funcion que muestra el número de palabras acertadas
+
+function palabrasAcertadas(valor) {
     document.getElementById('palabrasEncontradas').innerHTML = valor
+}
+
+function partidaGanada(valor) {
     if (valor == 4) {
         document.getElementById('botonReiniciar').style.display = 'block'
 
@@ -303,33 +260,25 @@ function partidaGanada(valor) {
     }
 }
 
+// funcion que deshabilita las casillas de las palabras encontradas.
 function deshabilitarCasillas() {
     for (var i = 0; i < 100; i++) {
-        if (document.getElementById('td' + i).style.backgroundColor != 'blue') {
+        if (document.getElementById('td' + i).style.backgroundColor != '#0200ff8f') {
             document.getElementById('td' + i).onclick = false
         }
     }
 }
 
-// SUMAR CELDAS
 
-var almacenaCeldas = []
 
-var arrayIDceldas = []
 
 function concatenarPalabra(celda) {
     almacenaCeldas.push(celda)
     sumaCeldas = almacenaCeldas[almacenaCeldas.length - 2]
-        // console.log(sumaCeldas);
-
-    var palabrConcatenada
-        // console.log(celda);
+    var palabrConcatenada;
     cambiarColortd(celda)
 
     arrayConcat.push(document.getElementById('td' + celda).innerText)
-
-    // ID.push(document.getElementsByClassName('clickado')[celda].id)
-
     palabrConcatenada = arrayConcat.join('')
 
     arrayIDceldas.push('td' + celda)
@@ -505,12 +454,12 @@ function concatenarPalabra(celda) {
         }
     }
 
-    console.log(palabrConcatenada)
 
+    //Comporbar si la palabra encontrada está dentro de las cuatro.
     if (anim.includes(palabrConcatenada)) {
         for (var i = 0; i < palabrConcatenada.length; i++) {
             document.getElementById(arrayIDceldas[i]).onclick = false
-            document.getElementById(arrayIDceldas[i]).style.backgroundColor = 'blue'
+            document.getElementById(arrayIDceldas[i]).style.backgroundColor = '#0200ff8f'
         }
         arrayConcat = []
         palabrConcatenada
@@ -519,7 +468,7 @@ function concatenarPalabra(celda) {
 
         Ganar = Ganar + 1
 
-
+        palabrasAcertadas(Ganar)
         partidaGanada(Ganar)
     }
 
@@ -561,16 +510,15 @@ function deshabilitarBoton() {
         document.getElementById('buttonSelect').disabled = true
     }
 }
-
 //* *************FUNCION PRINTA SELECCION EN TABLERO***************************
 
-// deshabilitarBoton()
+
 
 function seleccionaCategoria() {
     var seleccionID = document.getElementById('seleccionCategoria')
     seleccionID = seleccionID.options[seleccionID.selectedIndex].value
 
-    document.getElementById('palabrasEncontrar').innerHTML = '4'
+
 
     if (seleccionID == 1) {
         eligePalabras(animales)
@@ -579,6 +527,7 @@ function seleccionaCategoria() {
         ponerPalabrasEnTablero(arraypalabra)
         document.getElementById('buttonSelect').disabled = true
         contadorTiempo()
+        document.getElementById('palabrasEncontrar').innerHTML = '4'
     } else if (seleccionID == 2) {
         eligePalabras(colores)
         descoponePalabra()
@@ -587,6 +536,7 @@ function seleccionaCategoria() {
 
         document.getElementById('buttonSelect').disabled = true
         contadorTiempo()
+        document.getElementById('palabrasEncontrar').innerHTML = '4'
     } else if (seleccionID == 3) {
         eligePalabras(flores)
         descoponePalabra()
@@ -594,24 +544,6 @@ function seleccionaCategoria() {
         ponerPalabrasEnTablero(arraypalabra)
         document.getElementById('buttonSelect').disabled = true
         contadorTiempo()
+        document.getElementById('palabrasEncontrar').innerHTML = '4'
     }
 }
-
-// var aleatorio = Math.floor(Math.random() * 4)
-
-// if (aleatorio == 0) {
-//   printarHorizontal()
-
-//   printarHorizontalInverso()
-
-//   diagonalAbajo()
-// }
-
-// printarHorizontal(arraypalabra,0)
-// printarHorizontalInverso(arraypalabra,99)
-// verticalHaciaAbajo(arraypalabra,10)
-// vertiaclInverso()
-// diagonalAbajoDerecha()
-// diagonalAbajoIzquierda(arraypalabra,9)
-// diagonalInversoIzquierda()
-// diagonalInversoDerecha()

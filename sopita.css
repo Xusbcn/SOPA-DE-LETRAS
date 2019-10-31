@@ -25,6 +25,9 @@ table td:hover {
 #botonReiniciar {
     display: none;
     margin-left: 40%;
+    font-family: cursive;
+    color: black;
+    text-decoration: none;
 }
 
 #palabrasEncontrar {
@@ -48,7 +51,7 @@ table td:hover {
 #tiempo {
     border-style: solid;
     height: 50px;
-    width: 10%;
+    width: 20%;
     background-color: powderblue;
     font-size: 50px;
     color: #434343;
@@ -72,3 +75,31 @@ table td:hover {
 .tres {
     margin-left: -5%;
 }
+
+button {
+    background-color: rgb(122, 194, 194);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#buttonSelect:hover {
+    background-color: #4CAF50;
+    font-family: cursive;
+    color: black;
+}
+
+
+/* #buttonSelect {
+    display: none;
+} */
