@@ -14,10 +14,41 @@ table td:hover {
 }
 
 #reloj {
+    border-style: solid;
+    height: 50px;
+    width: 10%;
+    background-color: powderblue;
     font-size: 50px;
     color: #434343;
 }
 
 #botonReiniciar {
     display: none;
+}
+
+#palabrasEncontrar {
+    border-style: solid;
+    height: 50px;
+    width: 10%;
+    background-color: powderblue;
+    font-size: 50px;
+    color: #434343;
+}
+
+#palabrasEncontradas {
+    border-style: solid;
+    height: 50px;
+    width: 10%;
+    background-color: powderblue;
+    font-size: 50px;
+    color: #434343;
+}
+
+#tiempo {
+    border-style: solid;
+    height: 50px;
+    width: 10%;
+    background-color: powderblue;
+    font-size: 50px;
+    color: #434343;
 }

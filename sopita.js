@@ -107,6 +107,8 @@ var Ganar = 0
 var segundos = 0
 var tiempos
 
+var sumaCeldas
+
 // función que elije cuatro palabras sin que se repitan.
 
 function eligePalabras (array) {
@@ -259,7 +261,7 @@ function cambiarColortd (celda) {
   document.getElementById('td' + celda).style.backgroundColor = 'red'
 }
 
-// function desactivarOnclick (celda) {
+// function quitarRojo (celda) {
 //   if (document.getElementById('td' + celda).style.backgroundColor == 'red') {
 //     document.getElementById('td' + celda).onclick = false
 //     document.getElementById('td' + celda).style.backgroundColor = 'blue'
@@ -285,15 +287,16 @@ function contadorTiempo () {
 function paraTiempo () {
   clearInterval(segundos)
   document.getElementById('reloj').style.display = 'none'
+  document.getElementById('labelReloj').style.display = 'none'
 
-  document.getElementById('contenido').innerHTML =
-    'Has tardado: ' + segundos + ' segundos'
+  document.getElementById('tiempo').innerHTML = segundos
 }
 
 function partidaGanada (valor) {
   if (valor == 4) {
     document.getElementById('botonReiniciar').style.display = 'block'
-    console.log('funciona')
+    document.getElementById('palabrasEncontradas').innerHTML = valor
+    // console.log('funciona')
     paraTiempo()
     deshabilitarCasillas()
   }
@@ -307,27 +310,211 @@ function deshabilitarCasillas () {
   }
 }
 
-function concatenarPalabra (celda) {
-  var palabrConcatenada
+// SUMAR CELDAS
 
+var almacenaCeldas = []
+
+var arrayIDceldas = []
+
+function concatenarPalabra (celda) {
+  almacenaCeldas.push(celda)
+  sumaCeldas = almacenaCeldas[almacenaCeldas.length - 2]
+  // console.log(sumaCeldas);
+
+  var palabrConcatenada
+  // console.log(celda);
   cambiarColortd(celda)
 
   arrayConcat.push(document.getElementById('td' + celda).innerText)
 
-  ID.push(document.getElementsByClassName('clickado')[celda].id)
+  // ID.push(document.getElementsByClassName('clickado')[celda].id)
 
   palabrConcatenada = arrayConcat.join('')
 
-  // console.log(palabrConcatenada.length)
+  arrayIDceldas.push('td' + celda)
+
+  console.log(almacenaCeldas)
+
+  // borrar las que no siguen el orden
+
+  if (
+    almacenaCeldas[1] != almacenaCeldas[0] + 1 &&
+    almacenaCeldas[1] != almacenaCeldas[0] - 1 &&
+    almacenaCeldas[1] != almacenaCeldas[0] + 10 &&
+    almacenaCeldas[1] != almacenaCeldas[0] - 10 &&
+    almacenaCeldas[1] != almacenaCeldas[0] + 9 &&
+    almacenaCeldas[1] != almacenaCeldas[0] - 9 &&
+    almacenaCeldas[1] != almacenaCeldas[0] + 11 &&
+    almacenaCeldas[1] != almacenaCeldas[0] - 11
+  ) {
+    for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+      document.getElementById(arrayIDceldas[i]).style.backgroundColor = 'white'
+
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar horizontales
+  else if (almacenaCeldas[1] - almacenaCeldas[0] == 1) {
+    if (celda != sumaCeldas + 1 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+  // Dejar de marcar verticales hacia abajo
+  else if (almacenaCeldas[1] - almacenaCeldas[0] == 10) {
+    if (celda != sumaCeldas + 10 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar verticales hacia arriba
+  else if (almacenaCeldas[0] - almacenaCeldas[1] == 10) {
+    if (celda != sumaCeldas - 10 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar horizontal inversa
+  else if (almacenaCeldas[0] - almacenaCeldas[1] == 1) {
+    if (celda != sumaCeldas - 1 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar diagonal derecha hacia abajo
+  else if (almacenaCeldas[1] - almacenaCeldas[0] == 11) {
+    if (celda != sumaCeldas + 11 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar diagonal derecha inversa
+  else if (almacenaCeldas[0] - almacenaCeldas[1] == 11) {
+    if (celda != sumaCeldas - 11 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar diagonal izquierda hacia abajo
+  else if (almacenaCeldas[1] - almacenaCeldas[0] == 9) {
+    if (celda != sumaCeldas + 9 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  // Dejar de marcar diagonal izquierda  inversa
+  else if (almacenaCeldas[0] - almacenaCeldas[1] == 9) {
+    if (celda != sumaCeldas - 9 && celda != almacenaCeldas[0]) {
+      for (var i = 0; i < almacenaCeldas.length - 1; i++) {
+        document.getElementById(arrayIDceldas[i]).style.backgroundColor =
+          'white'
+      }
+      arrayIDceldas = []
+      arrayIDceldas[0] = 'td' + celda
+      almacenaCeldas = []
+      almacenaCeldas[0] = celda
+      arrayConcat = []
+      arrayConcat[0] = document.getElementById('td' + celda).innerText
+      palabrConcatenada
+      palabrConcatenada = arrayConcat[0]
+    }
+  }
+
+  console.log(palabrConcatenada)
 
   if (anim.includes(palabrConcatenada)) {
     for (var i = 0; i < palabrConcatenada.length; i++) {
-      document.getElementById(ID[i]).onclick = false
-      document.getElementById(ID[i]).style.backgroundColor = 'blue'
+      document.getElementById(arrayIDceldas[i]).onclick = false
+      document.getElementById(arrayIDceldas[i]).style.backgroundColor = 'blue'
     }
     arrayConcat = []
     palabrConcatenada
-    ID = []
+    arrayIDceldas = []
+    almacenaCeldas = []
 
     Ganar = Ganar + 1
     console.log(Ganar)
@@ -341,7 +528,7 @@ function concatenarPalabra (celda) {
 // ***************************PRINTAR PALABRA EN DIV*****************************
 
 function ponerPalabrasEnTablero (array) {
-  var aleatorio = Math.floor(Math.random() * 2)
+  var aleatorio = Math.floor(Math.random() * 4)
 
   if (aleatorio == 0) {
     printarHorizontal(arraypalabra, 10, 3)
@@ -353,6 +540,16 @@ function ponerPalabrasEnTablero (array) {
     verticalHaciaAbajo(arraypalabra, 18, 1)
     vertiaclInverso(arraypalabra, 99, 2)
     vertiaclInverso(arraypalabra, 90, 3)
+  } else if (aleatorio == 2) {
+    verticalHaciaAbajo(arraypalabra, 0, 0)
+    printarHorizontalInverso(arraypalabra, 9, 1)
+    printarHorizontal(arraypalabra, 90, 2)
+    diagonalInversoDerecha(arraypalabra, 81, 3)
+  } else if (aleatorio == 3) {
+    diagonalAbajoDerecha(arraypalabra, 11, 0)
+    diagonalAbajoDerecha(arraypalabra, 10, 1)
+    diagonalInversoIzquierda(arraypalabra, 89, 2)
+    printarHorizontal(arraypalabra, 1, 3)
   }
 }
 
@@ -371,6 +568,8 @@ function deshabilitarBoton () {
 function seleccionaCategoria () {
   var seleccionID = document.getElementById('seleccionCategoria')
   seleccionID = seleccionID.options[seleccionID.selectedIndex].value
+
+  document.getElementById('palabrasEncontrar').innerHTML = '4'
 
   if (seleccionID == 1) {
     eligePalabras(animales)
