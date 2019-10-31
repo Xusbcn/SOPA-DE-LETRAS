@@ -24,6 +24,7 @@ table td:hover {
 
 #botonReiniciar {
     display: none;
+    margin-left: 40%;
 }
 
 #palabrasEncontrar {
@@ -51,4 +52,23 @@ table td:hover {
     background-color: powderblue;
     font-size: 50px;
     color: #434343;
+}
+
+#contenedor {
+    display: flex;
+    flex-flow: row;
+    max-width: inherit;
+}
+
+.caja {
+    flex: auto;
+}
+
+.uno {
+    margin-left: 10%;
+    margin-right: -20%;
+}
+
+.tres {
+    margin-left: -5%;
 }

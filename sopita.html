@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,187 +9,193 @@
 
     <title>Document</title>
 </head>
+
 <body>
-    <div id= 'contenedor de tabla'>
-        <div id='caja1'>
-    <table align="center" border="1" width="400px" height="400px" ; cellspacing="2" cellpadding="2">
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td0" class ='clickado' onclick="concatenarPalabra(0)"></td>
-            <td width: 100% height: 100% id="td1" class ='clickado' onclick="concatenarPalabra(1)"></td>
-            <td width: 100% height: 100% id="td2" class ='clickado' onclick="concatenarPalabra(2)"></td>
-            <td width: 100% height: 100% id="td3" class ='clickado' onclick="concatenarPalabra(3)"></td>
-            <td width: 100% height: 100% id="td4" class ='clickado' onclick="concatenarPalabra(4)"></td>
-            <td width: 100% height: 100% id="td5" class ='clickado' onclick="concatenarPalabra(5)"></td>
-            <td width: 100% height: 100% id="td6" class ='clickado' onclick="concatenarPalabra(6)"></td>
-            <td width: 100% height: 100% id="td7" class ='clickado' onclick="concatenarPalabra(7)"></td>
-            <td width: 100% height: 100% id="td8" class ='clickado' onclick="concatenarPalabra(8)"></td>
-            <td width: 100% height: 100% id="td9" class ='clickado' onclick="concatenarPalabra(9)"></td>  
-        </tr>
+    <div id='contenedor'>
+        <div class="caja uno">
+            <div id=divSeleccion>
+                <select id='seleccionCategoria'>
+                        <option value="0">ELIGE CATEGORIA</option>
+                        <option value="1">ANIMAL</option>
+                        <option value="2">COLOR</option>
+                        <option value="3">FLOR</option>
+                    </select>
+            </div>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td10" class ='clickado' onclick="concatenarPalabra(10)"></td>
-            <td width: 100% height: 100% id="td11" class ='clickado' onclick="concatenarPalabra(11)"></td>
-            <td width: 100% height: 100% id="td12" class ='clickado' onclick="concatenarPalabra(12)"></td>
-            <td width: 100% height: 100% id="td13" class ='clickado' onclick="concatenarPalabra(13)"></td>
-            <td width: 100% height: 100% id="td14" class ='clickado' onclick="concatenarPalabra(14)"></td>
-            <td width: 100% height: 100% id="td15" class ='clickado' onclick="concatenarPalabra(15)"></td>
-            <td width: 100% height: 100% id="td16" class ='clickado' onclick="concatenarPalabra(16)"></td>
-            <td width: 100% height: 100% id="td17" class ='clickado' onclick="concatenarPalabra(17)"></td>
-            <td width: 100% height: 100% id="td18" class ='clickado' onclick="concatenarPalabra(18)"></td>
-            <td width: 100% height: 100% id="td19" class ='clickado' onclick="concatenarPalabra(19)"></td>  
-        </tr>
+            <div id='contentButton'>
+                <button id='buttonSelect' onclick="seleccionaCategoria()">INICIAR</button>
+            </div>
+        </div>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td20" class ='clickado' onclick="concatenarPalabra(20)"></td>
-            <td width: 100% height: 100% id="td21" class ='clickado' onclick="concatenarPalabra(21)"></td>
-            <td width: 100% height: 100% id="td22" class ='clickado' onclick="concatenarPalabra(22)"></td>
-            <td width: 100% height: 100% id="td23" class ='clickado' onclick="concatenarPalabra(23)"></td>
-            <td width: 100% height: 100% id="td24" class ='clickado' onclick="concatenarPalabra(24)"></td>
-            <td width: 100% height: 100% id="td25" class ='clickado' onclick="concatenarPalabra(25)"></td>
-            <td width: 100% height: 100% id="td26" class ='clickado' onclick="concatenarPalabra(26)"></td>
-            <td width: 100% height: 100% id="td27" class ='clickado' onclick="concatenarPalabra(27)"></td>
-            <td width: 100% height: 100% id="td28" class ='clickado' onclick="concatenarPalabra(28)"></td>
-            <td width: 100% height: 100% id="td29" class ='clickado' onclick="concatenarPalabra(29)"></td>  
-        </tr>
+        <div class="caja dos">
+            <table align="center" border="1" width="400px" height="400px" ; cellspacing="2" cellpadding="2">
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td0" class='clickado' onclick="concatenarPalabra(0)"></td>
+                    <td width: 100% height: 100% id="td1" class='clickado' onclick="concatenarPalabra(1)"></td>
+                    <td width: 100% height: 100% id="td2" class='clickado' onclick="concatenarPalabra(2)"></td>
+                    <td width: 100% height: 100% id="td3" class='clickado' onclick="concatenarPalabra(3)"></td>
+                    <td width: 100% height: 100% id="td4" class='clickado' onclick="concatenarPalabra(4)"></td>
+                    <td width: 100% height: 100% id="td5" class='clickado' onclick="concatenarPalabra(5)"></td>
+                    <td width: 100% height: 100% id="td6" class='clickado' onclick="concatenarPalabra(6)"></td>
+                    <td width: 100% height: 100% id="td7" class='clickado' onclick="concatenarPalabra(7)"></td>
+                    <td width: 100% height: 100% id="td8" class='clickado' onclick="concatenarPalabra(8)"></td>
+                    <td width: 100% height: 100% id="td9" class='clickado' onclick="concatenarPalabra(9)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td30" class ='clickado' onclick="concatenarPalabra(30)"></td>
-            <td width: 100% height: 100% id="td31" class ='clickado' onclick="concatenarPalabra(31)"></td>
-            <td width: 100% height: 100% id="td32" class ='clickado' onclick="concatenarPalabra(32)"></td>
-            <td width: 100% height: 100% id="td33" class ='clickado' onclick="concatenarPalabra(33)"></td>
-            <td width: 100% height: 100% id="td34" class ='clickado' onclick="concatenarPalabra(34)"></td>
-            <td width: 100% height: 100% id="td35" class ='clickado' onclick="concatenarPalabra(35)"></td>
-            <td width: 100% height: 100% id="td36" class ='clickado' onclick="concatenarPalabra(36)"></td>
-            <td width: 100% height: 100% id="td37" class ='clickado' onclick="concatenarPalabra(37)"></td>
-            <td width: 100% height: 100% id="td38" class ='clickado' onclick="concatenarPalabra(38)"></td>
-            <td width: 100% height: 100% id="td39" class ='clickado' onclick="concatenarPalabra(39)"></td>  
-        </tr>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td10" class='clickado' onclick="concatenarPalabra(10)"></td>
+                    <td width: 100% height: 100% id="td11" class='clickado' onclick="concatenarPalabra(11)"></td>
+                    <td width: 100% height: 100% id="td12" class='clickado' onclick="concatenarPalabra(12)"></td>
+                    <td width: 100% height: 100% id="td13" class='clickado' onclick="concatenarPalabra(13)"></td>
+                    <td width: 100% height: 100% id="td14" class='clickado' onclick="concatenarPalabra(14)"></td>
+                    <td width: 100% height: 100% id="td15" class='clickado' onclick="concatenarPalabra(15)"></td>
+                    <td width: 100% height: 100% id="td16" class='clickado' onclick="concatenarPalabra(16)"></td>
+                    <td width: 100% height: 100% id="td17" class='clickado' onclick="concatenarPalabra(17)"></td>
+                    <td width: 100% height: 100% id="td18" class='clickado' onclick="concatenarPalabra(18)"></td>
+                    <td width: 100% height: 100% id="td19" class='clickado' onclick="concatenarPalabra(19)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td40" class ='clickado' onclick="concatenarPalabra(40)"></td>
-            <td width: 100% height: 100% id="td41" class ='clickado' onclick="concatenarPalabra(41)"></td>
-            <td width: 100% height: 100% id="td42" class ='clickado' onclick="concatenarPalabra(42)"></td>
-            <td width: 100% height: 100% id="td43" class ='clickado' onclick="concatenarPalabra(43)"></td>
-            <td width: 100% height: 100% id="td44" class ='clickado' onclick="concatenarPalabra(44)"></td>
-            <td width: 100% height: 100% id="td45" class ='clickado' onclick="concatenarPalabra(45)"></td>
-            <td width: 100% height: 100% id="td46" class ='clickado' onclick="concatenarPalabra(46)"></td>
-            <td width: 100% height: 100% id="td47" class ='clickado' onclick="concatenarPalabra(47)"></td>
-            <td width: 100% height: 100% id="td48" class ='clickado' onclick="concatenarPalabra(48)"></td>
-            <td width: 100% height: 100% id="td49" class ='clickado' onclick="concatenarPalabra(49)"></td>  
-        </tr>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td20" class='clickado' onclick="concatenarPalabra(20)"></td>
+                    <td width: 100% height: 100% id="td21" class='clickado' onclick="concatenarPalabra(21)"></td>
+                    <td width: 100% height: 100% id="td22" class='clickado' onclick="concatenarPalabra(22)"></td>
+                    <td width: 100% height: 100% id="td23" class='clickado' onclick="concatenarPalabra(23)"></td>
+                    <td width: 100% height: 100% id="td24" class='clickado' onclick="concatenarPalabra(24)"></td>
+                    <td width: 100% height: 100% id="td25" class='clickado' onclick="concatenarPalabra(25)"></td>
+                    <td width: 100% height: 100% id="td26" class='clickado' onclick="concatenarPalabra(26)"></td>
+                    <td width: 100% height: 100% id="td27" class='clickado' onclick="concatenarPalabra(27)"></td>
+                    <td width: 100% height: 100% id="td28" class='clickado' onclick="concatenarPalabra(28)"></td>
+                    <td width: 100% height: 100% id="td29" class='clickado' onclick="concatenarPalabra(29)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td50" class ='clickado' onclick="concatenarPalabra(50)"></td>
-            <td width: 100% height: 100% id="td51" class ='clickado' onclick="concatenarPalabra(51)"></td>
-            <td width: 100% height: 100% id="td52" class ='clickado' onclick="concatenarPalabra(52)"></td>
-            <td width: 100% height: 100% id="td53" class ='clickado' onclick="concatenarPalabra(53)"></td>
-            <td width: 100% height: 100% id="td54" class ='clickado' onclick="concatenarPalabra(54)"></td>
-            <td width: 100% height: 100% id="td55" class ='clickado' onclick="concatenarPalabra(55)"></td>
-            <td width: 100% height: 100% id="td56" class ='clickado' onclick="concatenarPalabra(56)"></td>
-            <td width: 100% height: 100% id="td57" class ='clickado' onclick="concatenarPalabra(57)"></td>
-            <td width: 100% height: 100% id="td58" class ='clickado' onclick="concatenarPalabra(58)"></td>
-            <td width: 100% height: 100% id="td59" class ='clickado' onclick="concatenarPalabra(59)"></td>  
-        </tr>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td30" class='clickado' onclick="concatenarPalabra(30)"></td>
+                    <td width: 100% height: 100% id="td31" class='clickado' onclick="concatenarPalabra(31)"></td>
+                    <td width: 100% height: 100% id="td32" class='clickado' onclick="concatenarPalabra(32)"></td>
+                    <td width: 100% height: 100% id="td33" class='clickado' onclick="concatenarPalabra(33)"></td>
+                    <td width: 100% height: 100% id="td34" class='clickado' onclick="concatenarPalabra(34)"></td>
+                    <td width: 100% height: 100% id="td35" class='clickado' onclick="concatenarPalabra(35)"></td>
+                    <td width: 100% height: 100% id="td36" class='clickado' onclick="concatenarPalabra(36)"></td>
+                    <td width: 100% height: 100% id="td37" class='clickado' onclick="concatenarPalabra(37)"></td>
+                    <td width: 100% height: 100% id="td38" class='clickado' onclick="concatenarPalabra(38)"></td>
+                    <td width: 100% height: 100% id="td39" class='clickado' onclick="concatenarPalabra(39)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td60" class ='clickado' onclick="concatenarPalabra(60)"></td>
-            <td width: 100% height: 100% id="td61" class ='clickado' onclick="concatenarPalabra(61)"></td>
-            <td width: 100% height: 100% id="td62" class ='clickado' onclick="concatenarPalabra(62)"></td>
-            <td width: 100% height: 100% id="td63" class ='clickado' onclick="concatenarPalabra(63)"></td>
-            <td width: 100% height: 100% id="td64" class ='clickado' onclick="concatenarPalabra(64)"></td>
-            <td width: 100% height: 100% id="td65" class ='clickado' onclick="concatenarPalabra(65)"></td>
-            <td width: 100% height: 100% id="td66" class ='clickado' onclick="concatenarPalabra(66)"></td>
-            <td width: 100% height: 100% id="td67" class ='clickado' onclick="concatenarPalabra(67)"></td>
-            <td width: 100% height: 100% id="td68" class ='clickado' onclick="concatenarPalabra(68)"></td>
-            <td width: 100% height: 100% id="td69" class ='clickado' onclick="concatenarPalabra(69)"></td>  
-        </tr>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td40" class='clickado' onclick="concatenarPalabra(40)"></td>
+                    <td width: 100% height: 100% id="td41" class='clickado' onclick="concatenarPalabra(41)"></td>
+                    <td width: 100% height: 100% id="td42" class='clickado' onclick="concatenarPalabra(42)"></td>
+                    <td width: 100% height: 100% id="td43" class='clickado' onclick="concatenarPalabra(43)"></td>
+                    <td width: 100% height: 100% id="td44" class='clickado' onclick="concatenarPalabra(44)"></td>
+                    <td width: 100% height: 100% id="td45" class='clickado' onclick="concatenarPalabra(45)"></td>
+                    <td width: 100% height: 100% id="td46" class='clickado' onclick="concatenarPalabra(46)"></td>
+                    <td width: 100% height: 100% id="td47" class='clickado' onclick="concatenarPalabra(47)"></td>
+                    <td width: 100% height: 100% id="td48" class='clickado' onclick="concatenarPalabra(48)"></td>
+                    <td width: 100% height: 100% id="td49" class='clickado' onclick="concatenarPalabra(49)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td70" class ='clickado' onclick="concatenarPalabra(70)"></td>
-            <td width: 100% height: 100% id="td71" class ='clickado' onclick="concatenarPalabra(71)"></td>
-            <td width: 100% height: 100% id="td72" class ='clickado' onclick="concatenarPalabra(72)"></td>
-            <td width: 100% height: 100% id="td73" class ='clickado' onclick="concatenarPalabra(73)"></td>
-            <td width: 100% height: 100% id="td74" class ='clickado' onclick="concatenarPalabra(74)"></td>
-            <td width: 100% height: 100% id="td75" class ='clickado' onclick="concatenarPalabra(75)"></td>
-            <td width: 100% height: 100% id="td76" class ='clickado' onclick="concatenarPalabra(76)"></td>
-            <td width: 100% height: 100% id="td77" class ='clickado' onclick="concatenarPalabra(77)"></td>
-            <td width: 100% height: 100% id="td78" class ='clickado' onclick="concatenarPalabra(78)"></td>
-            <td width: 100% height: 100% id="td79" class ='clickado' onclick="concatenarPalabra(79)"></td>  
-        </tr>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td50" class='clickado' onclick="concatenarPalabra(50)"></td>
+                    <td width: 100% height: 100% id="td51" class='clickado' onclick="concatenarPalabra(51)"></td>
+                    <td width: 100% height: 100% id="td52" class='clickado' onclick="concatenarPalabra(52)"></td>
+                    <td width: 100% height: 100% id="td53" class='clickado' onclick="concatenarPalabra(53)"></td>
+                    <td width: 100% height: 100% id="td54" class='clickado' onclick="concatenarPalabra(54)"></td>
+                    <td width: 100% height: 100% id="td55" class='clickado' onclick="concatenarPalabra(55)"></td>
+                    <td width: 100% height: 100% id="td56" class='clickado' onclick="concatenarPalabra(56)"></td>
+                    <td width: 100% height: 100% id="td57" class='clickado' onclick="concatenarPalabra(57)"></td>
+                    <td width: 100% height: 100% id="td58" class='clickado' onclick="concatenarPalabra(58)"></td>
+                    <td width: 100% height: 100% id="td59" class='clickado' onclick="concatenarPalabra(59)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td80" class ='clickado' onclick="concatenarPalabra(80)"></td>
-            <td width: 100% height: 100% id="td81" class ='clickado' onclick="concatenarPalabra(81)"></td>
-            <td width: 100% height: 100% id="td82" class ='clickado' onclick="concatenarPalabra(82)"></td>
-            <td width: 100% height: 100% id="td83" class ='clickado' onclick="concatenarPalabra(83)"></td>
-            <td width: 100% height: 100% id="td84" class ='clickado' onclick="concatenarPalabra(84)"></td>
-            <td width: 100% height: 100% id="td85" class ='clickado' onclick="concatenarPalabra(85)"></td>
-            <td width: 100% height: 100% id="td86" class ='clickado' onclick="concatenarPalabra(86)"></td>
-            <td width: 100% height: 100% id="td87" class ='clickado' onclick="concatenarPalabra(87)"></td>
-            <td width: 100% height: 100% id="td88" class ='clickado' onclick="concatenarPalabra(88)"></td>
-            <td width: 100% height: 100% id="td89" class ='clickado' onclick="concatenarPalabra(89)"></td>  
-        </tr>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td60" class='clickado' onclick="concatenarPalabra(60)"></td>
+                    <td width: 100% height: 100% id="td61" class='clickado' onclick="concatenarPalabra(61)"></td>
+                    <td width: 100% height: 100% id="td62" class='clickado' onclick="concatenarPalabra(62)"></td>
+                    <td width: 100% height: 100% id="td63" class='clickado' onclick="concatenarPalabra(63)"></td>
+                    <td width: 100% height: 100% id="td64" class='clickado' onclick="concatenarPalabra(64)"></td>
+                    <td width: 100% height: 100% id="td65" class='clickado' onclick="concatenarPalabra(65)"></td>
+                    <td width: 100% height: 100% id="td66" class='clickado' onclick="concatenarPalabra(66)"></td>
+                    <td width: 100% height: 100% id="td67" class='clickado' onclick="concatenarPalabra(67)"></td>
+                    <td width: 100% height: 100% id="td68" class='clickado' onclick="concatenarPalabra(68)"></td>
+                    <td width: 100% height: 100% id="td69" class='clickado' onclick="concatenarPalabra(69)"></td>
+                </tr>
 
-        <tr class= "tr">
-            <td width: 100% height: 100% id="td90" class ='clickado' onclick="concatenarPalabra(90)"></td>
-            <td width: 100% height: 100% id="td91" class ='clickado' onclick="concatenarPalabra(91)"></td>
-            <td width: 100% height: 100% id="td92" class ='clickado' onclick="concatenarPalabra(92)"></td>
-            <td width: 100% height: 100% id="td93" class ='clickado' onclick="concatenarPalabra(93)"></td>
-            <td width: 100% height: 100% id="td94" class ='clickado' onclick="concatenarPalabra(94)"></td>
-            <td width: 100% height: 100% id="td95" class ='clickado' onclick="concatenarPalabra(95)"></td>
-            <td width: 100% height: 100% id="td96" class ='clickado' onclick="concatenarPalabra(96)"></td>
-            <td width: 100% height: 100% id="td97" class ='clickado' onclick="concatenarPalabra(97)"></td>
-            <td width: 100% height: 100% id="td98" class ='clickado' onclick="concatenarPalabra(98)"></td>
-            <td width: 100% height: 100% id="td99" class ='clickado' onclick="concatenarPalabra(99)"></td>  
-        </tr>
-        
-        
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td70" class='clickado' onclick="concatenarPalabra(70)"></td>
+                    <td width: 100% height: 100% id="td71" class='clickado' onclick="concatenarPalabra(71)"></td>
+                    <td width: 100% height: 100% id="td72" class='clickado' onclick="concatenarPalabra(72)"></td>
+                    <td width: 100% height: 100% id="td73" class='clickado' onclick="concatenarPalabra(73)"></td>
+                    <td width: 100% height: 100% id="td74" class='clickado' onclick="concatenarPalabra(74)"></td>
+                    <td width: 100% height: 100% id="td75" class='clickado' onclick="concatenarPalabra(75)"></td>
+                    <td width: 100% height: 100% id="td76" class='clickado' onclick="concatenarPalabra(76)"></td>
+                    <td width: 100% height: 100% id="td77" class='clickado' onclick="concatenarPalabra(77)"></td>
+                    <td width: 100% height: 100% id="td78" class='clickado' onclick="concatenarPalabra(78)"></td>
+                    <td width: 100% height: 100% id="td79" class='clickado' onclick="concatenarPalabra(79)"></td>
+                </tr>
 
-        
-    </table>
-   
-    <table align="center" border="0">
-        <tr>
-            <td width="300" align="center"><br />
-                <a href="javascript:location.reload()">
-                    <button id = 'botonReiniciar'>Reiniciar</button></a>
-            </td>
-        </tr>
-    </table>
- </div>
-<div id ='caja2'>
-    <label for="">NUMERO DE PALABRAS A ENCONTRAR</label>
-    <div id= 'palabrasEncontrar'>
-       
-    </div>
-    <label for="">PALABRAS ENCONTRADAS</label>
-     <div id= 'palabrasEncontradas'>
-       
-    </div>
-    
-    <label id ='labelReloj' for="">RELOJ</label>
-    <div id='reloj'></div>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td80" class='clickado' onclick="concatenarPalabra(80)"></td>
+                    <td width: 100% height: 100% id="td81" class='clickado' onclick="concatenarPalabra(81)"></td>
+                    <td width: 100% height: 100% id="td82" class='clickado' onclick="concatenarPalabra(82)"></td>
+                    <td width: 100% height: 100% id="td83" class='clickado' onclick="concatenarPalabra(83)"></td>
+                    <td width: 100% height: 100% id="td84" class='clickado' onclick="concatenarPalabra(84)"></td>
+                    <td width: 100% height: 100% id="td85" class='clickado' onclick="concatenarPalabra(85)"></td>
+                    <td width: 100% height: 100% id="td86" class='clickado' onclick="concatenarPalabra(86)"></td>
+                    <td width: 100% height: 100% id="td87" class='clickado' onclick="concatenarPalabra(87)"></td>
+                    <td width: 100% height: 100% id="td88" class='clickado' onclick="concatenarPalabra(88)"></td>
+                    <td width: 100% height: 100% id="td89" class='clickado' onclick="concatenarPalabra(89)"></td>
+                </tr>
 
-    </div>
-    
-    <label for="">SEGUNDOS TARDADOS</label>
-    <div id='tiempo'></div>
+                <tr class="tr">
+                    <td width: 100% height: 100% id="td90" class='clickado' onclick="concatenarPalabra(90)"></td>
+                    <td width: 100% height: 100% id="td91" class='clickado' onclick="concatenarPalabra(91)"></td>
+                    <td width: 100% height: 100% id="td92" class='clickado' onclick="concatenarPalabra(92)"></td>
+                    <td width: 100% height: 100% id="td93" class='clickado' onclick="concatenarPalabra(93)"></td>
+                    <td width: 100% height: 100% id="td94" class='clickado' onclick="concatenarPalabra(94)"></td>
+                    <td width: 100% height: 100% id="td95" class='clickado' onclick="concatenarPalabra(95)"></td>
+                    <td width: 100% height: 100% id="td96" class='clickado' onclick="concatenarPalabra(96)"></td>
+                    <td width: 100% height: 100% id="td97" class='clickado' onclick="concatenarPalabra(97)"></td>
+                    <td width: 100% height: 100% id="td98" class='clickado' onclick="concatenarPalabra(98)"></td>
+                    <td width: 100% height: 100% id="td99" class='clickado' onclick="concatenarPalabra(99)"></td>
+                </tr>
 
-    </div>
 
-    <div id ='caja3'>
-    <div id = divSeleccion>
-        <select id ='seleccionCategoria'>
-            <option value="0">ELIGE CATEGORIA</option>
-            <option value="1">ANIMAL</option>
-            <option value="2">COLOR</option>
-            <option value="3">FLOR</option>
-        </select>
-    </div>
-    <div id ='contentButton'>
-        <button id = 'buttonSelect' onclick="seleccionaCategoria()">INICIAR</button>
-    </div>
-    </div>
+
+
+            </table>
+
+            <table align="center" border="0">
+                <tr>
+                    <td width="300" align="center"><br />
+                        <a href="javascript:location.reload()">
+                            <button id='botonReiniciar'>REINICIAR PARTIDA</button></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="caja 3">
+            <label for="">NUMERO DE PALABRAS A ENCONTRAR</label>
+            <div id='palabrasEncontrar'>
+
+            </div>
+            <label for="">PALABRAS ENCONTRADAS</label>
+            <div id='palabrasEncontradas'>
+
+            </div>
+
+            <label id='labelReloj' for="">RELOJ</label>
+            <div id='reloj'></div>
+
+            <label for="">SEGUNDOS TARDADOS</label>
+            <div id='tiempo'></div>
+
+        </div>
+
+
+
+
+
     </div>
 </body>
 <script type="text/javascript" src="sopita.js"></script>
